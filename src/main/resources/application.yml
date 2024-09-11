@@ -1,0 +1,8 @@
+spring:
+  profiles:
+    active: local
+app:
+  headers:
+    auth-token-header: Authorization
+    user:
+      default-profile-image-url: "http://bit.ly/4eeCLvy"
