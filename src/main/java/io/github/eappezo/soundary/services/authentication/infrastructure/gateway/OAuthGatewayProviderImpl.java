@@ -1,4 +1,4 @@
-package io.github.eappezo.soundary.services.authentication.infrastructure;
+package io.github.eappezo.soundary.services.authentication.infrastructure.gateway;
 
 import io.github.eappezo.soundary.services.authentication.application.OAuthGateway;
 import io.github.eappezo.soundary.services.authentication.application.OAuthGatewayProvider;

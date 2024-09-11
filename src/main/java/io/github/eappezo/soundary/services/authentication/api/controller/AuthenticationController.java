@@ -1,7 +1,7 @@
 package io.github.eappezo.soundary.services.authentication.api.controller;
 
 import io.github.eappezo.soundary.services.authentication.api.dto.AuthenticationResponse;
-import io.github.eappezo.soundary.services.authentication.api.dto.AuthentificationRequest;
+import io.github.eappezo.soundary.services.authentication.api.dto.AuthenticationRequest;
 import io.github.eappezo.soundary.services.authentication.application.AuthenticatedUserDto;
 import io.github.eappezo.soundary.services.authentication.application.AuthenticationRequestDto;
 import io.github.eappezo.soundary.services.authentication.application.service.OAuthService;
@@ -18,7 +18,7 @@ public class AuthenticationController {
     }
 
     @GetMapping("/oauth/login")
-    public AuthenticationResponse login(@RequestBody AuthentificationRequest request){
+    public AuthenticationResponse login(@RequestBody AuthenticationRequest request){
         AuthenticationRequestDto dto = request.to();
         AuthenticatedUserDto userDto = oAuthService.login(dto);
         return new AuthenticationResponse(userDto.accessToken(), userDto.refreshToken(), userDto.expiresIn());

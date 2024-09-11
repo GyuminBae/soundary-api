@@ -1,4 +1,4 @@
-package io.github.eappezo.soundary.advice;
+package io.github.eappezo.soundary.core;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;

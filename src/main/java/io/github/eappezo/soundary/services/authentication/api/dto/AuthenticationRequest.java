@@ -3,7 +3,7 @@ package io.github.eappezo.soundary.services.authentication.api.dto;
 import io.github.eappezo.soundary.services.authentication.application.AuthenticationRequestDto;
 import io.github.eappezo.soundary.services.authentication.domain.SocialPlatform;
 
-public record AuthentificationRequest(
+public record AuthenticationRequest(
         SocialPlatform platform,
         String token
 ) {

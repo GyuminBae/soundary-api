@@ -4,5 +4,5 @@ spring:
 app:
   headers:
     auth-token-header: Authorization
-    user:
-      default-profile-image-url: "http://bit.ly/4eeCLvy"
+  user:
+    default-profile-image-url: "https://bit.ly/4eeCLvy"

@@ -1,15 +1,15 @@
-package io.github.eappezo.soundary.infrastructure.handler;
+package io.github.eappezo.soundary.advice.handler;
 
 import io.github.eappezo.soundary.core.exception.APIException;
-import io.github.eappezo.soundary.core.exception.common.CommonErrorCode;
 import io.github.eappezo.soundary.core.exception.ErrorResponse;
+import io.github.eappezo.soundary.core.exception.common.CommonErrorCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import static io.github.eappezo.soundary.infrastructure.ExceptionUtil.stackTraceOf;
+import static io.github.eappezo.soundary.core.ExceptionUtil.stackTraceOf;
 
 @Slf4j
 @RestControllerAdvice
@@ -21,20 +21,9 @@ public class APIExceptionHandler {
     }
 
     @ExceptionHandler(RuntimeException.class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ErrorResponse handleRuntimeException(RuntimeException exception) {
-        log.error(errorLogMessage(exception));
+        log.error(stackTraceOf(exception));
         return ErrorResponse.of(CommonErrorCode.UNKNOWN_ERROR);
-    }
-
-    private String errorLogMessage(Exception exception) {
-        return String.format(
-                """
-                    message: %s
-                    stack-trace: %s
-                """.trim(),
-                exception.getMessage(),
-                stackTraceOf(exception)
-        );
     }
 }
